@@ -2,6 +2,20 @@
 
 {% block content %}
 
+<div class="home-container">
+
+    {% for topic in topics %}
+
+        <p
+            class= 'topicsBtn'
+        >
+            <a href="{% url 'home' %}?q={{topic.name}}">{{topic.name}}</a>
+        </p>
+
+    {% endfor %}
+
+
+</div>
 
 
 {% endblock %}
