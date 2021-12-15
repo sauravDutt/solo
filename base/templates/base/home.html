@@ -5,15 +5,40 @@
 <div class="home-container">
 
     {% for topic in topics %}
-
-        <p
-            class= 'topicsBtn'
-        >
-            <a href="{% url 'home' %}?q={{topic.name}}">{{topic.name}}</a>
-        </p>
-
+        <div>
+            <p
+                class= 'topicsBtn'
+            >
+                <a href="{% url 'home' %}?q={{topic.name}}">{{topic.name}}</a>
+            </p>
+        </div>
     {% endfor %}
+    <br><br><br>
+    <div >
+        <h5  style="font-family: 'Raleway', sans-serif;"> Posts available - {{post_count}} </h5>
+        <div>
+            {% for post in posts %}
+                <div
+                    style="
+                        border-bottom: 1px solid #fff;
+                        margin-top: 10px;
+                        color: #fff;
+                        padding: 15px;
+                        padding-bottom: 20px;
+                        font-family: 'Raleway', sans-serif;
+                    "
+                >
+                    
+                    <span style="user-select: none;">@{{post.host.username}}</span>
+                    <h1><a href="#" style="text-decoration: none; color: #fff;">{{post.title}}</a></h1>
+                    <small style=" padding: 5px; border-radius: 10px; background-color:#fff;color:#000;cursor: pointer;">{{post.topic.name}}</small>
+                   
+                </div>
 
+            {% endfor %}
+        </div>
+
+    </div>
 
 </div>
 
