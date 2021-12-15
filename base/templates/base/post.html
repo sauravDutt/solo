@@ -23,14 +23,13 @@
             <h3 style="font-weight: 300; letter-spacing: 2px;">Insights</h3>
             <hr>
 
-            {% for message in room_messages %}
-                <div>
+            {% for message in post_messages %}
+                <div style="border: 1px solid #fff; padding: 5px; width: 70%; border-radius: 15px; background-color: #fff; color: #000; margin-top: 10px; margin-bottom: 10px;">
                     {% if request.user == message.user %}
-                        <a href="{% url 'delete-message' message.id %}">Delete</a>
+                        <a href="{% url 'delete-message' message.id %} " style="text-decoration: none; color: #000;font-weight: 600;font-size: 14px; float: right; margin-right: 10px;margin-top: 3px;">Delete</a>
                     {% endif %}
                     <small>@{{message.user}}   {{message.created|timesince}} ago</small>
                     <p>{{message.body}}</p>
-                    <hr>
                 </div>
             {% endfor %}
         </div>

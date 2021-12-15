@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<style>
+    input {
+        width: 100%;
+        font-size: 20px;
+        font-family: 'Raleway', sans-serif;
+    }
+    
+    textarea {
+        margin-top: 10px;
+        width: 100%;
+    }
+</style>
+
+<div
+    style="
+        margin-top: 90px;
+    "
+>
+    <form method="POST" action="" style="font-size: 20px; font-family: 'Raleway', sans-serif; margin: 0 auto;">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Post" style="background-color: #fff; font-size: 18px; border: none;border-radius: 10px; letter-spacing: 2px; padding: 5px; cursor: pointer;"/>
+    </form>
+</div>
+
+
+{% endblock content %}

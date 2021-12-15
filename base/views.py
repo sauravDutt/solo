@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
@@ -87,9 +88,61 @@ def post(request, pk):
             post = post,
             body = request.POST.get('body')
         )
-        post.participants.add(request.user)
-        return redirect('room', pk=post.id)
+        return redirect('post', pk=post.id)
 
     context = {'post': post, 'post_messages': post_messages}
 
     return render(request, 'base/post.html', context)
+
+@login_required(login_url='/login')
+def createPost(request):
+    form = PostForm()
+    if request.method == 'POST' :
+        form = PostForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+
+    context = {'form': form}
+    return render(request, 'base/post_form.html', context)
+
+@login_required(login_url='/login')
+def updatePost (request, pk):
+    post = Post.objects.get(id=pk)
+    form = PostForm(instance=post)
+
+    if request.user != post.host :
+        return HttpResponse('You are not allowed to Update this post')
+
+    if request.method == 'POST':
+        form = PostForm(request.POST, instance = post)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+
+    context = {'form': form}
+    return render(request, 'base/post_form.html', context)
+
+@login_required(login_url='/login')
+def deletePost (request, pk):
+    post = Post.objects.get(id=pk)
+
+    if request.user != post.host :
+        return HttpResponse('You are not allowed to Delete this post')
+
+    if request.method == 'POST':
+        post.delete()
+        return redirect('home')
+    return render(request, 'base/delete.html', {'obj': post})
+
+@login_required(login_url='/login')
+def deleteMessage (request, pk):
+    message = Message.objects.get(id=pk)
+
+    if request.user != message.user :
+        return HttpResponse('You are not allowed to Delete this message')
+
+    if request.method == 'POST':
+        message.delete()
+        return redirect('home')
+    return render(request, 'base/delete.html', {'obj': message})

@@ -15,7 +15,8 @@
     {% endfor %}
     <br><br><br>
     <div >
-        <h5  style="font-family: 'Raleway', sans-serif;"> Posts available - {{post_count}} </h5>
+        <h5  style="font-family: 'Raleway', sans-serif;"> Posts available - {{post_count}} 
+        </h5><a href="{% url  'create-post' %}" style="text-decoration: none; color: #fff;font-family: 'Raleway', sans-serif; float: right; margin-top: -40px; border: 1px solid #fff;border-radius: 10px; padding: 5px;">Add Post</a>
         <div>
             {% for post in posts %}
                 <div
@@ -28,7 +29,12 @@
                         font-family: 'Raleway', sans-serif;
                     "
                 >
-                    
+                {% if request.user == post.host %}
+                    <span style="float: right; font-family: 'Raleway', sans-serif; color: rgb(4, 59, 211); ">
+                        <a href="{% url 'update-post' post.id %}" style="text-decoration: none; color: #fff;">Edit</a> |  
+                        <a href="{% url 'delete-post' post.id %}" style="text-decoration: none; color: #fff;">Delete</a>
+                    </span>
+                {% endif %}
                     <span style="user-select: none;">@{{post.host.username}}</span>
                     <h1><a href="{% url 'post' post.id %}" style="text-decoration: none; color: #fff;">{{post.title}}</a></h1>
                     <small style=" padding: 5px; border-radius: 10px; background-color:#fff;color:#000;cursor: pointer;">{{post.topic.name}}</small>

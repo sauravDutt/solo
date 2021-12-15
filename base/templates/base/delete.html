@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<form action="" method='POST' style="margin-top: 170px;">
+    {% csrf_token %}
+    <p style="font-family: 'Raleway', sans-serif; font-size: 20px; letter-spacing: 2px; font-weight: 100;">
+        Are you sure you want to delete <strong style="font-weight: 300;">"{{obj}}"</strong>?
+    </p>
+    <a href="{{ request.META.HTTP_REFERER }}" style="text-decoration: none; color: #fff;font-family: 'Raleway', sans-serif; margin-top: -40px; border: 1px solid #fff;border-radius: 10px; padding: 5px;">Go Back</a>
+    <input type="submit" value="Confirm" style="background-color: #fff; font-size: 18px; border: none;border-radius: 10px; letter-spacing: 2px; padding: 5px; cursor: pointer;"/>
+
+</form>
+
+{% endblock content %}
