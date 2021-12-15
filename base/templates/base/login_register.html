@@ -1,0 +1,52 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+{% if page == 'login' %}
+<div
+    style="
+        margin-top: 90px;
+        font-family: 'Raleway', sans-serif;
+        letter-spacing: 2px;
+        font-weight: 100;
+        font-size: 20px;
+    ;"
+>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <label>Username </label><br>
+        <input type="text" name="username" placeholder="Enter Username" style="border: none; background-color: transparent; color: #fff; font-size: 20px; padding: 7px;margin-top: 10px; margin-bottom: 15px; border: 1px solid rgba(255, 255, 255, 0.445);border-radius: 10px; width: 93%;">
+        <br>
+        <label>Password </label><br>
+        <input type="password" name="password" placeholder="Enter Password" style="border: none; background-color: transparent; color: #fff; font-size: 20px; padding: 7px;margin-top: 10px; margin-bottom: 15px; border: 1px solid rgba(255, 255, 255, 0.445); width: 93%; border-radius: 10px;">
+        <br>
+        <input type="submit" value="Login" style="background-color: #fff; font-size: 18px; border: none;border-radius: 10px; letter-spacing: 2px; padding: 5px; cursor: pointer;">
+    </form>
+
+    <p>Havent signed up yet?</p>
+    <a href="{% url 'register' %}" style="text-decoration: none; color: #fff; font-weight: 300; ">Sign up</a>
+</div>
+
+{% else %}
+
+<div
+    style="
+        margin-top: 90px;
+        font-family: 'Raleway', sans-serif;
+        letter-spacing: 2px;
+        font-weight: 100;
+        font-size: 20px;
+    ;"
+>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Register" style="background-color: #fff; font-size: 18px; border: none;border-radius: 10px; letter-spacing: 2px; padding: 5px; cursor: pointer;">
+    </form>
+
+    <p>Already signed up?</p>
+    <a href="{% url 'login' %}" style="text-decoration: none; color: #fff; font-weight: 300; ">Login</a>
+</div>
+{% endif %}
+  
+{% endblock content %}

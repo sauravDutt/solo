@@ -6,10 +6,13 @@
     {% if request.user.is_authenticated %}
         <p
             style="
-                color: #000;
+                font-family: 'Raleway', sans-serif;
+                color: #fff;
                 user-select: none;
+                font-size: 17px;
+                margin-bottom: -30px;
             "
-        >Hello @{{request.user}}  <a href="{% url 'logout' %}" 
+        > <mark style="background-color: rgb(57, 73, 95); color: #fff; font-weight: 600;padding: 3px; user-select: none;">@{{request.user}}</mark>  <a href="{% url 'logout' %}" 
         class="login">Logout</a></p>
 
 
