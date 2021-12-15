@@ -1,0 +1,51 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<style>
+    .post-container{
+        margin-top: 90px;
+        font-family: 'Raleway', sans-serif;
+    }
+    p {
+        text-align: justify;
+        padding: 2px;
+    }
+</style>
+    <div class="post-container">
+
+        <div>
+            <h2 style="font-weight: 300;">{{post.title}}</h2>
+        <p style="font-weight: 100;">
+            {{post.discription}}
+        </p>
+
+        <div>
+            <h3 style="font-weight: 300; letter-spacing: 2px;">Insights</h3>
+            <hr>
+
+            {% for message in room_messages %}
+                <div>
+                    {% if request.user == message.user %}
+                        <a href="{% url 'delete-message' message.id %}">Delete</a>
+                    {% endif %}
+                    <small>@{{message.user}}   {{message.created|timesince}} ago</small>
+                    <p>{{message.body}}</p>
+                    <hr>
+                </div>
+            {% endfor %}
+        </div>
+
+        {% if request.user.is_authenticated %}
+        <div style="color: #fff;">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <input type="text" name="body" placeholder="Write an insight..." style="background-color: transparent; width: 99%; font-size: 17px; border: none; padding: 5px; color: #fff; letter-spacing: 2px;" />
+            </form>
+        </div>
+        {% endif %}
+
+        </div>
+
+    </div>
+
+ {% endblock  %}

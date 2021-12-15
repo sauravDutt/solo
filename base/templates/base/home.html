@@ -30,7 +30,7 @@
                 >
                     
                     <span style="user-select: none;">@{{post.host.username}}</span>
-                    <h1><a href="#" style="text-decoration: none; color: #fff;">{{post.title}}</a></h1>
+                    <h1><a href="{% url 'post' post.id %}" style="text-decoration: none; color: #fff;">{{post.title}}</a></h1>
                     <small style=" padding: 5px; border-radius: 10px; background-color:#fff;color:#000;cursor: pointer;">{{post.topic.name}}</small>
                    
                 </div>

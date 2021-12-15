@@ -1,5 +1,4 @@
-from django.http.response import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.db.models import Q
 from .models import Message, Post, Topic
 
@@ -21,3 +20,20 @@ def home(request):
     context = {'posts': posts, 'topics': topics, 'post_count': post_count, 'post_messages': post_messages}
     return render(request, 'base/home.html', context)
 
+def post(request, pk):
+    post = Post.objects.get(id=pk)
+    post_messages = post.message_set.all().order_by('-created')
+    
+
+    if request.method == 'POST':
+        message = Message.objects.create(
+            user = request.user,
+            post = post,
+            body = request.POST.get('body')
+        )
+        post.participants.add(request.user)
+        return redirect('room', pk=post.id)
+
+    context = {'post': post, 'post_messages': post_messages}
+
+    return render(request, 'base/post.html', context)
