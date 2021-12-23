@@ -9,6 +9,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import PostForm
 from .models import Message, Post, Topic
 
+
 # Create your views here.
 def loginPage(request):
 
@@ -59,6 +60,9 @@ def registerPage(request):
 
     return render(request, 'base/login_register.html', {'form': form})
 
+
+def info(request):
+    return render(request, 'base/info.html')
 
 
 def home(request):
