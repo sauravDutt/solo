@@ -20,9 +20,8 @@
         </p>
 
         <div>
-            <h3 style="font-weight: 300; letter-spacing: 2px;">Insights</h3>
             <hr>
-
+            <h3 style="font-weight: 300; letter-spacing: 2px;">Comments .....</h3>
             {% for message in post_messages %}
                 <div style="border: 1px solid #fff; padding: 5px; width: 70%; border-radius: 15px; background-color: #fff; color: #000; margin-top: 10px; margin-bottom: 10px;">
                     {% if request.user == message.user %}
