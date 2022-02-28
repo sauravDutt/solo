@@ -4,16 +4,8 @@
 
 <div class="home-container">
 
-    {% for topic in topics %}
-        <div>
-            <p
-                class= 'topicsBtn'
-            >
-                <a href="{% url 'home' %}?q={{topic.name}}">{{topic.name}}</a>
-            </p>
-        </div>
-    {% endfor %}
-    <br><br><br>
+    
+    <br>
     <div >
         <h5  style="font-family: 'Raleway', sans-serif;"> Posts available - {{post_count}} 
         </h5><a href="{% url  'create-post' %}" style="text-decoration: none; color: #fff;font-family: 'Raleway', sans-serif; float: right; margin-top: -40px; border: 1px solid #fff;border-radius: 10px; padding: 5px;">Add Post</a>
