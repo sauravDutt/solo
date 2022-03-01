@@ -10,9 +10,9 @@ class Topic(models.Model):
 
 class Post(models.Model):
     host = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null= True)
+    schools = models.ForeignKey(Topic, on_delete=models.SET_NULL, null= True)
     title = models.CharField(max_length=200)
-    discription = models.TextField(null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
     updated = models.DateTimeField(auto_now= True)
     created = models.DateTimeField(auto_now_add=True)
 
