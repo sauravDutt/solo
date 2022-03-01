@@ -12,6 +12,7 @@
         font-size: 20px;
     ;"
 >
+<br><br><br><br><br><br><br><br><br>
     <form action="" method="POST">
         {% csrf_token %}
         <label>Username </label><br>
@@ -24,11 +25,11 @@
     </form>
 
     <p>Havent signed up yet?</p>
-    <a href="{% url 'register' %}" style="text-decoration: none; color: #fff; font-weight: 300; ">Sign up</a>
+    <a href="{% url 'register' %}" style="text-decoration: none; color: #000; font-weight: 300; ">Sign up</a>
 </div>
 
 {% else %}
-
+<br><br><br><br><br>
 <div
     style="
         margin-top: 90px;
