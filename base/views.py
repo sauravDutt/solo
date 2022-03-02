@@ -77,7 +77,6 @@ def home(request):
     topics = Topic.objects.all()
     post_count = posts.count()
     post_messages = Message.objects.all()
-
     context = {'posts': posts, 'topics': topics, 'post_count': post_count, 'post_messages': post_messages}
     return render(request, 'base/home.html', context)
 

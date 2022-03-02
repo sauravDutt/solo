@@ -16,10 +16,28 @@
         body {
             color: #000;
             background-color: #fff;
+            overflow-y: hidden;
         }
+
+        body::-webkit-scrollbar {
+            width: 0px;
+        }
+
+        body::-webkit-scrollbar-track {
+            background: #fff;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            border-radius: 0.8rem;
+            background: transparent;
+        }
+
         .mainApp {
             margin: 0 auto;
             width: 420px;
+        }
+        .out::-webkit-scrollbar {
+            width: 0px;
         }
         nav {
             background-color: #fff;
@@ -67,7 +85,7 @@
         }
         .topicsBtn a{
             color: #000;
-             background-color: #fff;
+            background-color: #fff;
             border: none;
             border-radius: 10px;
             margin: 5px;
