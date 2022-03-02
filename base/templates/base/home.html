@@ -62,7 +62,7 @@
                 
                     <span style="user-select: none;">@{{post.host.username}}</span>
                     <br><br>
-                    {{ post.images.url }}
+                    <img src="{{ post.images.url }}" alt="Image" srcset="">
                     <h1><a href="{% url 'post' post.id %}" style="text-decoration: none; color: #000;">{{post.title}}</a></h1>
                     <small style=" padding: 5px; border-radius: 10px; background-color:rgb(0, 0, 0);color:#fff;cursor: pointer;">{{post.topic.name}}</small>
                    
