@@ -22,7 +22,7 @@
     "
 >
 <br><br><br><br><br><br><br><br><br><br><br>
-    <form method="POST" action="" style="font-size: 20px; font-family: 'Raleway', sans-serif; margin: 0 auto;">
+    <form method="POST" enctype="multypart/form-data" action="" style="font-size: 20px; font-family: 'Raleway', sans-serif; margin: 0 auto;">
         {% csrf_token %}
         {{form.as_p}}
         <input type="submit" value="Post" style="background-color: #fff; font-size: 18px; border: none;border-radius: 10px; letter-spacing: 2px; padding: 5px; cursor: pointer;"/>
