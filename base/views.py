@@ -153,5 +153,12 @@ def deleteMessage (request, pk):
 
 @login_required(login_url='/login')
 def schoolDashBoard (request):
+    form = PostForm()
+    if request.method == 'POST' :
+        form = PostForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
 
-    return render(request, 'base/school_board.html')    
+    context = {'form': form}
+    return render(request, 'base/school_board.html', context)    
