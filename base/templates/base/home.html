@@ -13,12 +13,6 @@
                 margin-top: 20vh;
             ">
             </div>
-            <!-- <marquee behavior="scroll" direction="left" scrollamount ='5'
-                style="
-                    width: 100vw;
-                    margin-left: -32vw;
-                "
-            >  -->
             <div
                 class="out"
                 style="
@@ -28,10 +22,10 @@
                     scroll-behavior: smooth;
                 "
             >
-            <marquee behavior="scroll" direction="left" scrollamount ='5'
+            <marquee behavior="smooth" direction="left" scrollamount ='5'
                 style="
                 display: grid;
-                grid-template-columns: auto auto auto ;
+                grid-template-columns: auto auto auto auto auto auto;
                 height: 65vh;
                 width: 100%;
                 "
@@ -47,7 +41,7 @@
                         margin-left: 5vw;
                         color: #000;
                         width: 50vw;
-                        padding: 20px;
+                        padding: 30px;
                         height: 50vh;
                         padding-bottom: 20px;
                         font-family: 'Raleway', sans-serif;
@@ -62,17 +56,41 @@
                 
                     <span style="user-select: none;">@{{post.host.username}}</span>
                     <br><br>
-                    <img src="{{ post.images.url }}" alt="Image" srcset="">
-                    <h1><a href="{% url 'post' post.id %}" style="text-decoration: none; color: #000;">{{post.title}}</a></h1>
+                    <!-- <img src="{{ post.images.url }}" alt="Image" srcset=""  
+                        style="
+                            width: 250px;
+                            height: 300px;
+                            margin-top: 25px;
+                            margin-left: 20px;
+                            border-radius: 10px;
+                        "
+                    > -->
+                    {{ post.images.url }}
+                    <span
+                        style="float: right;"
+                    >
+                    <h1><a href="{% url 'post' post.id %}" style="text-decoration: none; color: #000; font-size: 20px;">{{post.title}}</a></h1>
+                    <textarea
+                        style="
+                            padding: 0px;
+                            border: none;
+                            text-align: justify;
+                            font-size: 20px;
+                            width: 310px;
+                            height: 90px;
+                            overflow: hidden;
+                        "
+                    >
+                        {{ post.discription }}
+                    </textarea><br><br>
                     <small style=" padding: 5px; border-radius: 10px; background-color:rgb(0, 0, 0);color:#fff;cursor: pointer;">{{post.topic.name}}</small>
-                   
+                    </span>
                 </div>
             
                 
             {% endfor %}
                 </marquee>
             </div>
-            <!-- </marquee> -->
         </div>
 
     </div>
