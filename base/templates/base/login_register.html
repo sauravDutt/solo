@@ -4,7 +4,7 @@
 {% block content %}
 
 {% if page == 'login' %}
-<br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
 <div
     style="
         margin-top: 90px;
@@ -17,16 +17,14 @@
     <form action="" method="POST">
         {% csrf_token %}
         <label>Username </label><br>
-        <input type="text" name="username" placeholder="Enter Username" style="border: none; background-color: transparent; color: #fff; font-size: 20px; padding: 7px;margin-top: 10px; margin-bottom: 15px; border: 1px solid rgba(255, 255, 255, 0.445);border-radius: 10px; width: 93%;">
+        <input type="text" name="username" placeholder="Enter Username" style="border: none; background-color: transparent; color: #000; font-size: 20px; padding: 7px;margin-top: 10px; margin-bottom: 15px; border: 1px solid rgba(255, 255, 255, 0.445);border-radius: 10px; width: 93%;">
         <br>
         <label>Password </label><br>
-        <input type="password" name="password" placeholder="Enter Password" style="border: none; background-color: transparent; color: #fff; font-size: 20px; padding: 7px;margin-top: 10px; margin-bottom: 15px; border: 1px solid rgba(255, 255, 255, 0.445); width: 93%; border-radius: 10px;">
+        <input type="password" name="password" placeholder="Enter Password" style="border: none; background-color: transparent; color: #000; font-size: 20px; padding: 7px;margin-top: 10px; margin-bottom: 15px; border: 1px solid rgba(255, 255, 255, 0.445); width: 93%; border-radius: 10px;">
         <br>
         <input type="submit" value="Login" style="background-color: #fff; font-size: 18px; border: none;border-radius: 10px; letter-spacing: 2px; padding: 5px; cursor: pointer;">
     </form>
 
-    <p>Havent signed up yet?</p>
-    <a href="{% url 'register' %}" style="text-decoration: none; color: #000; font-weight: 300; ">Sign up</a>
 </div>
 
 {% else %}
