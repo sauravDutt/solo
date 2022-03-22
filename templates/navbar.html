@@ -1,5 +1,5 @@
 <nav>
-    <a href="/" style="text-decoration: none;">
+    <a href="/" style="text-decoration: none; ">
         <h1 class="logo">Sushant University</h1>
     </a>
     <h3 class="homeTimeBeing"><mark style="background-color: rgb(82, 107, 139);color: #fff; padding: 5px;"> Notice Board </mark></h3>
@@ -9,8 +9,11 @@
                 font-family: 'Raleway', sans-serif;
                 color: #fff;
                 user-select: none;
-                font-size: 17px;
-                margin-bottom: -30px;
+                font-size: 15px;
+                width: 600px;
+                margin: 0 auto;
+                margin-top: -40px;
+                margin-bottom: 20px;
             "
         > <mark style="background-color: rgb(57, 73, 95); color: #fff; font-weight: 600;padding: 3px; user-select: none;">@{{request.user}}</mark>  <a href="{% url 'logout' %}" 
         class="login">Logout</a></p>
