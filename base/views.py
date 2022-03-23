@@ -144,11 +144,18 @@ def deleteMessage (request, pk):
 @login_required(login_url='/login')
 def schoolDashBoard (request):
     form = PostForm()
+    q = request.GET.get('q') if request.GET.get('q') != None else ''
+    posts = Post.objects.filter(
+        Q(topic__name__icontains= q) |
+        Q(title__icontains=q) |
+        Q(discription__icontains=q)
+        )
+
     if request.method == 'POST' :
         form = PostForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('home')
 
-    context = {'form': form}
+    context = {'form': form, 'posts': posts}
     return render(request, 'base/school_board.html', context)    

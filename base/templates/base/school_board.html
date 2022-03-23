@@ -27,101 +27,30 @@
         "
     > 
         <h3 class="liveNoticeTitle">Live Notices</h3>
-        <div
-            style="
-                margin: 0 auto;
-                margin-bottom: 20px;
-                margin-top: 20px;
-                border-radius: 15px;
-                padding: 10px;
-                height: 10vh;
-                background-color: aliceblue;
-                width: 90%;
-                box-shadow: 5px 10px 18px rgba(21, 0, 59, 0.116);
-            "
-        >
-            this is live notice One
-        </div>
-        <div
-            style="
-                margin: 0 auto;
-                margin-bottom: 20px;
-                margin-top: 20px;
-                border-radius: 15px;
-                padding: 10px;
-                height: 10vh;
-                background-color: aliceblue;
-                width: 90%;
-                box-shadow: 5px 10px 18px rgba(21, 0, 59, 0.116);
-            "
-        >
-            this is live notice Two
-        </div>
-        <div
-            style="
-                margin: 0 auto;
-                margin-bottom: 20px;
-                margin-top: 20px;
-                border-radius: 15px;
-                padding: 10px;
-                height: 10vh;
-                background-color: aliceblue;
-                width: 90%;
-                box-shadow: 5px 10px 18px rgba(21, 0, 59, 0.116);
-            "
-        >
-            this is live notice Three
-        </div>
-        <div
-            style="
-                margin: 0 auto;
-                margin-bottom: 20px;
-                margin-top: 20px;
-                border-radius: 15px;
-                padding: 10px;
-                height: 10vh;
-                background-color: aliceblue;
-                width: 90%;
-                box-shadow: 5px 10px 18px rgba(21, 0, 59, 0.116);
-            "
-        >
-            this is live notice Three
-        </div>
-        <div
-            style="
-                margin: 0 auto;
-                margin-bottom: 20px;
-                margin-top: 20px;
-                border-radius: 15px;
-                padding: 10px;
-                height: 10vh;
-                background-color: aliceblue;
-                width: 90%;
-                box-shadow: 5px 10px 18px rgba(21, 0, 59, 0.116);
-            "
-        >
-            this is live notice Three
-        </div>
-        <div
-            style="
-                margin: 0 auto;
-                margin-bottom: 20px;
-                margin-top: 20px;
-                border-radius: 15px;
-                padding: 10px;
-                height: 10vh;
-                background-color: aliceblue;
-                width: 90%;
-                box-shadow: 5px 10px 18px rgba(21, 0, 59, 0.116);
-            "
-        >
-            this is live notice Three
-        </div>
+        {% for post in posts %}
+            <div
+                style="
+                    margin: 0 auto;
+                    margin-bottom: 20px;
+                    margin-top: 20px;
+                    border-radius: 15px;
+                    padding: 10px;
+                    height: 12vh;
+                    background-color: aliceblue;
+                    width: 90%;
+                    box-shadow: 5px 10px 18px rgba(21, 0, 59, 0.116);
+                "
+            >
+                <h2><a href="{% url 'post' post.id %}" style="text-decoration: none; color: #000; font-size: 20px;">{{post.title}}</a></h2>
+                <small style=" padding: 5px; border-radius: 10px; background-color:rgb(0, 0, 0);color:#fff;cursor: pointer;">{{post.topic.name}}</small>
+            </div>
+        {% endfor %}
     </div>
     <div
         style="
             margin: 0 auto;
             width: 900px;
+            overflow: scroll;
             height: 520px;
             border-radius: 15px;
             box-shadow: 5px 10px 18px rgba(21, 0, 59, 0.24);
